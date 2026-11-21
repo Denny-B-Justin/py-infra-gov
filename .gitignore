@@ -1,0 +1,14 @@
+# secrets — never commit
+.env
+.env.*
+!.env.sample
+# local dev data
+.local/
+*.sqlite3
+# python
+__pycache__/
+*.pyc
+.venv*/
+# build
+tailwind/node_modules/
+rsconnect-python/

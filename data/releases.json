@@ -1,0 +1,283 @@
+[
+ {
+  "version": "1.5.1",
+  "type": "Minor",
+  "date": "November 16, 2026",
+  "iso": "2026-11-16",
+  "entries": [
+   "Dimension 16 (Subnational PIM governance) now has all <strong>17 indicators</strong>. Previously only the first 12 had wording and D16.13–D16.17 showed a generic placeholder question. D16 now follows the latest InfraGov 2.0 framework: D16.4 onwards cover investment and financial plans, appraisal procedures and capacity, independent review, selection, cost management, project adjustments, completion review and audit, centre–subnational coordination, capital transfers and local fiscal risk.",
+   "The new D16 indicators are translated into French, Spanish and Portuguese. The Spanish wording of D16.1–D16.3 was also corrected; it had misread the abbreviation SNG."
+  ]
+ },
+ {
+  "version": "1.5.0",
+  "type": "Major",
+  "date": "October 18, 2026",
+  "iso": "2026-10-18",
+  "entries": [
+   "New <strong>Portuguese (Português)</strong> language, in European Portuguese (PT-PT) for use in Portugal and Lusophone Africa. Pick it from the language switcher in the navbar to translate every screen, all InfraGov dimension names, indicator questions and maturity descriptions, and all PAG-FA pillars and indicators.",
+   "The Portuguese content is a first pass by DeepL in a formal register, using a glossary of methodology terms (gestão do investimento público, governos subnacionais, otimização dos recursos, ativos públicos, empresas públicas, contratação pública, derrapagens de custos), followed by a review that corrected inconsistent terminology. It should be checked by a Portuguese-speaking PIM expert before being treated as final.",
+   "Portuguese maturity levels read <strong>Incipiente / Nascente / Emergente / Avançado</strong> on the indicator form and the dashboard badges. Suggest Responses writes its drafts in Portuguese, and Word documents uploaded back into the tool recognise the Portuguese level names."
+  ]
+ },
+ {
+  "version": "1.4.0",
+  "type": "Major",
+  "date": "October 18, 2026",
+  "iso": "2026-10-18",
+  "entries": [
+   "<strong>French (Français) is now complete.</strong> Every screen is translated, along with all InfraGov dimension names, indicator questions and maturity descriptions, and all PAG-FA pillars and indicators. Previously only part of the interface was in French and all framework content appeared in English.",
+   "The French content is a first pass by DeepL in a formal register, using a glossary of methodology terms (gestion des investissements publics, administrations infranationales, optimisation des ressources, actifs publics, entreprises publiques), followed by a review that corrected several mistranslations. As with Spanish, it should be checked by a French-speaking PIM expert before being treated as final.",
+   "French maturity levels now read <strong>Initial / Naissant / Émergent / Avancé</strong> everywhere. Previously the indicator form and the dashboard badges used “Émergent” for different levels.",
+   "Word documents uploaded back into the tool now recognise maturity level names with or without accents (“Émergent”, “Avancé”)."
+  ]
+ },
+ {
+  "version": "1.3.0",
+  "type": "Major",
+  "date": "October 13, 2026",
+  "iso": "2026-10-13",
+  "entries": [
+   "New <strong>Documents</strong> tab in an assessment's Settings. Owners and Admins upload the source documents the assessment is based on (PDF, Word .docx, Excel .xlsx/.xls or CSV, up to 50 MB each) and the tool reads their text. Contributors and Reviewers can view and download them; Viewers can't. Scanned PDFs with no text are flagged rather than stored silently, and uploads and removals appear in the Activity Log.",
+   "New <strong>Suggest Responses</strong> button on each dimension. It drafts Data Source, Result Summary, Result Detail and Maturity Level for every indicator from the uploaded documents, with a confidence rating and the quoted passages each answer is based on. Quotes that can't be found in the documents are flagged, and indicators the documents don't cover are marked “No evidence found” instead of being guessed.",
+   "Nothing is saved until you review and apply. Empty fields are pre-selected; answers your team has already written are only replaced if you tick them. Indicators that are already answered are skipped, and drafts are saved, so reopening Suggest Responses doesn't call the AI again. Re-drafting is always your choice, and drafts made before documents were added or removed are flagged. Applied edits are marked “AI-assisted” in the Activity Log.",
+   "New <strong>Document review</strong> option under Key Respondents for indicators whose evidence came from documents rather than a person, so document-based indicators can be completed. Suggest Responses can record it on all the indicators you apply in one step.",
+   "Clearer completion feedback: the indicator form shows “All changes saved” when nothing is pending and notes when Key Respondents is the only thing missing, and the publish page lists each unfinished indicator and what it still needs, with a link straight to it.",
+   "The assessment sidebar's “Details” link is now <strong>Settings</strong>."
+  ]
+ },
+ {
+  "version": "1.2.1",
+  "type": "Minor",
+  "date": "August 31, 2026",
+  "iso": "2026-08-31",
+  "entries": [
+   "The <strong>editable Word download</strong> has been rebuilt to look like a proper report. Opens with a cover page (title, country, framework, exported date, prepared-by line), an auto Table of Contents on page 2, and a running header + page-number footer through the body.",
+   "Each dimension now starts on its own page with a styled indicator table — real borders, shaded header row, tuned column widths, and a <strong>coloured maturity cell</strong> matching the app's Incipient → Advanced palette so completeness reads at a glance.",
+   "Existing Word documents you exported before this change still upload back into the tool without issue — the round-trip parser now locates its metadata block by content rather than position."
+  ]
+ },
+ {
+  "version": "1.2.0",
+  "type": "Major",
+  "date": "August 28, 2026",
+  "iso": "2026-08-28",
+  "entries": [
+   "New <strong>dimension-level Change log</strong> panel — a slide-out on every dimension entry page, alongside Comments and Sharing, showing every event scoped to that dimension. Publish/unpublish, team changes, imports, and now indicator edits, all in one timeline.",
+   "<strong>Indicator edits are now logged.</strong> Every save on Key Respondents, Data Source, Result Summary, Result Detail, Maturity Level, or attachments records a change log entry with the list of fields that actually changed — a real audit trail, not just “last edited by”.",
+   "Every activity log entry now shows the actor's <strong>organisation</strong> alongside their name, both on the assessment Activity tab and in the new dimension-level panel. The organisation is captured at the moment of the write, so historical entries stay readable even if a user later moves.",
+   "Word round-trip imports now produce a single clean <strong>“imported changes to D3 from a Word document · 4 indicators updated”</strong> row per affected dimension, instead of one row per touched indicator.",
+   "Activity feeds now <strong>paginate</strong> — first 10 entries shown, click “Show older entries (N more)” to reveal the next 10. Applies to both the assessment Activity tab and the dimension-level Change log."
+  ]
+ },
+ {
+  "version": "1.1.0",
+  "type": "Major",
+  "date": "August 22, 2026",
+  "iso": "2026-08-22",
+  "entries": [
+   "New <strong>AI Cleanup</strong> button on Data Source, Result Summary, and Result Detail. Type a rough draft, click the button, and get a polished version back — grammar and phrasing tightened, facts preserved, character limits respected.",
+   "Preview modal shows your draft alongside the polished version <strong>side-by-side</strong> before anything is saved. Accept, tweak it inline, run another pass, or cancel — nothing lands in the field until you accept.",
+   "Powered by Claude Haiku with field-aware prompts, so the tone matches assessment writing rather than generic marketing copy. Refinement runs server-side, so no API keys ever touch the browser."
+  ]
+ },
+ {
+  "version": "1.0.0",
+  "type": "Major",
+  "date": "July 24, 2026",
+  "iso": "2026-07-24",
+  "entries": [
+   "New <strong>Word round-trip</strong> workflow for Owners and platform Admins. Download a dimension's data as an editable <code className=\"text-xs px-1 py-0.5 rounded bg-white/10\">.docx</code>, edit offline in Word (great for team review passes), then upload the edited file back.",
+   "The upload opens a <strong>preview modal</strong> showing every field where the document differs from what's on the server, with a per-row Accept checkbox. Nothing is applied until you review and confirm; fields on Published dimensions and unrecognised maturity values are automatically locked.",
+   "Guards built in throughout — mismatched-assessment uploads are rejected outright, out-of-date documents surface a “server has newer edits” warning, and applied imports emit a proper entry on the change log.",
+   "PDF upload is coming in a follow-up. For now, upload the <code className=\"text-xs px-1 py-0.5 rounded bg-white/10\">.docx</code> file directly."
+  ]
+ },
+ {
+  "version": "0.9.1",
+  "type": "Minor",
+  "date": "June 30, 2026",
+  "iso": "2026-06-30",
+  "entries": [
+   "The product is now called <strong>InfraGov Assessment Tool</strong>. New wordmark logo rolls out across the navbar, public headers, auth screens, and the browser tab. Everything under the hood keeps working the same way.",
+   "Landing page Key Functionality card 02 no longer links to a PAG-FA quick-start — the framework picker in New Assessment is the single entry point.",
+   "Pim-pam footer logo bumped from 24px to 32px so it sits comfortably alongside the InfraGov wordmark."
+  ]
+ },
+ {
+  "version": "0.9.0",
+  "type": "Minor",
+  "date": "June 29, 2026",
+  "iso": "2026-06-29",
+  "entries": [
+   "Real screenshots on every <strong>feature card</strong> in the home page Key Functionality section — Dimensions, PAG-FA, Save & resume, Permissions, and Publish. No more placeholder previews.",
+   "Feature card images now anchor to the <strong>top-left</strong> of their frame, so the relevant content of each screenshot stays visible at narrower viewports instead of being cropped sideways."
+  ]
+ },
+ {
+  "version": "0.8.0",
+  "type": "Major",
+  "date": "June 28, 2026",
+  "iso": "2026-06-28",
+  "entries": [
+   "New <strong>intro video</strong> replaces the placeholder image on the welcome modal, About page, and landing hero. Self-hosted (no third-party embeds or tracking); same player config across all three surfaces.",
+   "<strong>PDF reports redesigned</strong> from the ground up. The country profile PDF now strips down to country / dimension / indicator / maturity badge — no comparison columns, no chart cards, no chrome. Real print stylesheet with proper A4 margins, colour-fidelity for badges, and per-dimension page-break guards.",
+   "New dedicated <strong>assessment report</strong> route accessible from the Sharing Panel's “Export as PDF report”. Renders a clean per-dimension breakdown scoped to the open assessment and auto-fires the print dialog.",
+   "The <strong>New Assessment framework picker</strong> redesigned: stacked tiles, full “Public Asset Governance Functional Assessment” name instead of the bare acronym, and a single “More information” link beside the Framework label pointing to a new Frameworks section on the About page.",
+   "New <strong>Frameworks</strong> section on the About page explaining what InfraGov 2.0 and PAG-FA each cover, when to run each, and the fact that the two can run independently for the same country in the same fiscal year.",
+   "Contributors can now <strong>edit answers from the dimension summary</strong>. Previously they hit a read-only view with no way back to the form once they'd filled every indicator.",
+   "Footer cleanup — the grid background carries uniformly across the band, and the divider above the copyright line is gone."
+  ]
+ },
+ {
+  "version": "0.7.1",
+  "type": "Minor",
+  "date": "June 26, 2026",
+  "iso": "2026-06-26",
+  "entries": [
+   "Translation completeness sweep — left sidebar, dashboard footer, assessment Visualization page, country profile (including the “X of N dimensions published” line and Download data cluster), New Assessment box, and the Global Visualization chrome are all properly translated now. Maturity badges (the coloured pills) switch to <strong>Incipiente / Naciente / Emergente / Avanzado</strong> in Spanish across every surface they appear.",
+   "Assessment <strong>delete</strong> is now wired up. Only the assessment Owner and platform Admins can delete; the action requires retyping the assessment title to confirm and cascades through every related record (indicators, comments, activity log, team, invitations).",
+   "Framework toggle on the country profile moved to the right column above the Download data cluster — out of the “Back to global visualization” link's zone."
+  ]
+ },
+ {
+  "version": "0.7.0",
+  "type": "Major",
+  "date": "June 25, 2026",
+  "iso": "2026-06-25",
+  "entries": [
+   "New <strong>Spanish (Español)</strong> locale across the entire app. Pick it from the language switcher in the navbar to translate every UI surface, dimension name, indicator question, and maturity-level description.",
+   "Spanish content is a machine-translated first pass via DeepL with a formal register; methodology terms should be reviewed by a Spanish-speaking PFM/PIM expert before treating any of it as final.",
+   "New translation pipeline behind the scenes: a single spreadsheet round-trips every user-facing string, so adding French content (or any other language) in future follows the same workflow."
+  ]
+ },
+ {
+  "version": "0.6.0",
+  "type": "Major",
+  "date": "June 23, 2026",
+  "iso": "2026-06-23",
+  "entries": [
+   "New <strong>PAG-FA framework</strong> (Public Asset Governance Functional Assessment) sits alongside the InfraGov framework, with its own 8 pillars and 42 indicators. Pick which framework you're running when you create a new assessment.",
+   "Distinct <strong>green palette</strong> swaps in across every PAG-FA assessment surface so you always know which framework you're inside. A small framework chip beside the navbar logo confirms it.",
+   "The Global Visualization navbar entry is now a <strong>two-pane menu</strong>: pick framework first, then jump straight into a country with published data in that framework.",
+   "Assessments list gains a <strong>framework filter</strong> (only shown when both kinds are present) and a per-card framework chip so the two frameworks read at a glance.",
+   "Cross-links between frameworks: the home page's Card 02 now starts a PAG-FA assessment directly, and country profiles surface a banner pointing to the sibling framework when available."
+  ]
+ },
+ {
+  "version": "0.5.1",
+  "type": "Minor",
+  "date": "June 22, 2026",
+  "iso": "2026-06-22",
+  "entries": [
+   "The InfraGov logo on the Login, About, and Revision Notes pages is now <strong>clickable</strong> and routes home (Dashboard if signed in, landing page otherwise).",
+   "Card 01 on the home page now shows the actual <strong>Dimensions screenshot</strong> instead of a generic dashboard preview."
+  ]
+ },
+ {
+  "version": "0.5.0",
+  "type": "Major",
+  "date": "June 21, 2026",
+  "iso": "2026-06-21",
+  "entries": [
+   "<strong>Multi-user collaboration goes live.</strong> Assessment data, indicator entries, comments, collaborators, the activity log, and the unpublish-approval workflow now live in Supabase rather than each user's browser. Your colleagues see your work in real time after a refresh.",
+   "Authors can now <strong>edit and delete their own comments</strong> wherever comments appear, with a two-step Delete (Click → “Confirm?” → done) to guard against stray clicks.",
+   "New <strong>per-country fiscal year</strong> display: split-year countries (UK 24/25, Japan 25/26, etc.) keep their native label in the New Assessment form while visualization and lists always use the end year so cross-country comparison stays apples-to-apples.",
+   "The separate <strong>Country Data</strong> dropdown was folded into Global Visualization — one nav entry shows “Show All Countries” at the top with each published country listed below.",
+   "Updated <strong>dimension names</strong> across all 16 dimensions to match the latest methodology copy (sentence case, terminology tightened).",
+   "PDF exports from a dimension or country profile page now <strong>expand every accordion item</strong> and drop the sidebar, so the printed document is just the data.",
+   "Visualization-page dimension picker now shows the dropdown chevron, matching every other select in the app."
+  ]
+ },
+ {
+  "version": "0.4.2",
+  "type": "Minor",
+  "date": "June 17, 2026",
+  "iso": "2026-06-17",
+  "entries": [
+   "Dimension page indicator stepper now has an <strong>“Indicators” title</strong> and a horizontal carousel of indicator numbers — fewer dropdowns, more direct navigation between indicators."
+  ]
+ },
+ {
+  "version": "0.4.1",
+  "type": "Minor",
+  "date": "June 15, 2026",
+  "iso": "2026-06-15",
+  "entries": [
+   "The Sharing Panel now offers <strong>live PDF and CSV exports</strong> (replacing the previous embed-link approach).",
+   "Viewers no longer see comments, but can still export PDF / CSV for the assessments they have access to.",
+   "Admins can now <strong>create new users directly with a password</strong>, no email round-trip required.",
+   "The dashboard footer now sticks to the viewport bottom on short pages instead of floating mid-screen.",
+   "Login page copy tightened around the access-restricted flow."
+  ]
+ },
+ {
+  "version": "0.4.0",
+  "type": "Major",
+  "date": "June 14, 2026",
+  "iso": "2026-06-14",
+  "entries": [
+   "New <strong>Supabase-backed authentication</strong> replaces the seeded login. Real sessions, proper password handling, and a working password-recovery flow.",
+   "New <strong>Forgot Password</strong> flow — request a reset link by email, set a new password via the one-time link.",
+   "New <strong>Admin-invite-Owner</strong> flow — platform Admins invite Owner accounts by email; Owners then create and run assessments for their country.",
+   "The <strong>New Assessment</strong> button is now gated to Admin and Owner roles only. Contributors, Reviewers, and Viewers see the list without the create option.",
+   "“Forgot password?” link added directly beneath the Sign In button on the login form."
+  ]
+ },
+ {
+  "version": "0.3.0",
+  "type": "Major",
+  "date": "June 10, 2026",
+  "iso": "2026-06-10",
+  "entries": [
+   "New <strong>unpublish approval flow</strong> — assessment Owners now submit an unpublish request with a reason, and platform Admins approve or deny via the notifications bell.",
+   "New <strong>Country Data</strong> dropdown in the main navigation for quick access to any country with published dimensions.",
+   "Country profile dimension chart redesigned with a fixed-slot polar layout and an <strong>on-demand hover popup</strong> showing the dimension name, country, and maturity level.",
+   "The per-dimension breakdown on country profiles is <strong>collapsible</strong> again, with the first published dimension open by default.",
+   "Maturity values now display as <strong>whole numbers</strong> across every surface, and all maturity badges share a consistent white-on-colour style.",
+   "New <strong>InfraGov 2.0 Dashboard</strong> wordmark replaces the placeholder logo across every header.",
+   "Welcome modal refreshed with new copy and a hero image."
+  ]
+ },
+ {
+  "version": "0.2.1",
+  "type": "Minor",
+  "date": "June 7, 2026",
+  "iso": "2026-06-07",
+  "entries": [
+   "The Methodology page is now <strong>About This Tool</strong>, restructured as a tabbed knowledge base covering maturity, assessments, publishing, roles, comparisons, downloads, and feedback.",
+   "Welcome modal redesigned as a single screen with the intro video, supporting text, and a direct link into the relevant section of About This Tool.",
+   "Layout refinements across the About This Tool page and the Maturity Benchmark cards."
+  ]
+ },
+ {
+  "version": "0.2.0",
+  "type": "Major",
+  "date": "June 6, 2026",
+  "iso": "2026-06-06",
+  "entries": [
+   "New <strong>maturity-level colour palette</strong> — a blue (Incipient) through teal to green (Advanced) hue scale.",
+   "Fiscal year handling simplified to a single end-year shown consistently across the app.",
+   "Creating a new assessment is now anchored on a single <strong>Reporting Fiscal Year</strong>, with the title derived automatically.",
+   "Global dashboard always uses each country's <strong>most recent published assessment</strong>; per-dimension data is labelled with its source fiscal year for traceability.",
+   "New <strong>Download data</strong> cluster on country profiles — PDF export and Excel-compatible CSV with proper accent handling.",
+   "Key Respondents dropdown rescoped <strong>per-country</strong>, with an explicit “Add new respondent” action.",
+   "Comparison gaps are flagged with an amber notice when the comparison country hasn't published a dimension."
+  ]
+ },
+ {
+  "version": "0.1.0",
+  "type": "Major",
+  "date": "June 4, 2026",
+  "iso": "2026-06-04",
+  "entries": [
+   "Terminology updated: <strong>“Score”</strong> renamed to <strong>“Maturity Level”</strong> across every user-facing surface in both English and French.",
+   "Maturity Benchmark question redesigned as a <strong>4-card picker</strong> with definitions visible inline.",
+   "New <strong>welcome modal</strong> on first login, re-openable from the navbar help button.",
+   "Completed dimensions now show a <strong>read-only summary view</strong> that stays in place after publishing; published dimensions are locked from edits until explicitly unpublished.",
+   "Country page comparison: pick a comparison country and switch between <strong>Text</strong> and <strong>Chart</strong> views.",
+   "Global dashboard restructured around a <strong>countries dropdown</strong> with the chart spanning the full content width.",
+   "Assessment visualization redesigned around a published-dimensions selector and a full-width chart card."
+  ]
+ }
+]

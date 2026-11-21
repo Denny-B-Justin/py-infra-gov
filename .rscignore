@@ -1,0 +1,7 @@
+.env
+.local
+tailwind
+migration
+__pycache__
+.venv
+.venv311

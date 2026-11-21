@@ -1,0 +1,116 @@
+/*
+ * Source stylesheet for assets/style.css.
+ * Rebuild after changing class names in pages/ or utils/:
+ *   npx @tailwindcss/cli@4 -i tailwind/input.css -o assets/style.css --minify
+ * Design tokens below are copied from the original app/globals.css.
+ */
+@import "tailwindcss" source(none);
+@source "../pages";
+@source "../utils";
+@source "../assets/app.js";
+
+/* ---------------------------------------------------------------- fonts
+   Self-hosted (no Google Fonts / third-party requests; CSP font-src 'self').
+   Inter = original body font (next/font Inter); Fira Sans 700 = headings. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/inter-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/inter-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/inter-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/inter-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/inter-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/inter-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/inter-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/inter-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Fira Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/fira-sans-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Fira Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/fira-sans-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+/* ---------------------------------------------------------------- tokens (from globals.css) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --accent-50:  #EEEEF6; --accent-100: #DCDDED; --accent-200: #B5B7DA; --accent-300: #8E91C4; --accent-400: #6A6DB8;
+  --accent-500: #5356B0; --accent-600: #4345AA; --accent-700: #383A91; --accent-800: #2D2F75; --accent-900: #1F215A;
+  /* Dash 4 core-component tokens mapped onto the brand palette */
+  --Dash-Fill-Interactive-Strong: var(--accent-500);
+  --Dash-Stroke-Strong: #d1d5db;
+  --Dash-Text-Disabled: #9ca3af;
+}
+[data-framework="pagfa"] {
+  --accent-50:  #ECF8F2; --accent-100: #D0EFDF; --accent-200: #A9E1C5; --accent-300: #82D3AB; --accent-400: #5BC591;
+  --accent-500: #45BC85; --accent-600: #37B37F; --accent-700: #2E946A; --accent-800: #266F50; --accent-900: #1A4D36;
+}
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-fira: "Fira Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-indigo-50:  var(--accent-50);  --color-indigo-100: var(--accent-100); --color-indigo-200: var(--accent-200);
+  --color-indigo-300: var(--accent-300); --color-indigo-400: var(--accent-400); --color-indigo-500: var(--accent-500);
+  --color-indigo-600: var(--accent-600); --color-indigo-700: var(--accent-700); --color-indigo-800: var(--accent-800);
+  --color-indigo-900: var(--accent-900);
+}
+
+html { scroll-behavior: smooth; }
+body { background: #f3f4f6; color: var(--foreground); font-family: var(--font-sans); margin: 0; -webkit-font-smoothing: antialiased; }
+button:not(:disabled), [role="button"]:not([aria-disabled="true"]), summary, label[for] { cursor: pointer; }
+
+/* ---------------------------------------------------------------- app components */
+.ig-icon {
+  display: inline-block; flex-shrink: 0; vertical-align: middle; background-color: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
+}
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; }
+details.ig-accordion[open] .ig-chevron { transform: rotate(180deg); }
+.ig-no-scrollbar { scrollbar-width: none; }
+.ig-no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ---- Dash 4 core components: let the Tailwind classes passed via className win.
+   Dash ships un-layered CSS, which outranks Tailwind's @layer utilities, so the
+   relevant properties are rolled back to the layered (Tailwind) value. */
+.dash-input-container.dash-input, .dash-input-container.dash-input:focus-within {
+  height: revert-layer; background: revert-layer; border: revert-layer; border-color: revert-layer;
+  border-radius: revert-layer; padding: revert-layer; font-size: revert-layer; display: flex; outline: revert-layer;
+}
+.dash-input-container .dash-input-element { padding: 0; height: auto; font-size: inherit; line-height: inherit; font-family: inherit; }
+.dash-input-container .dash-input-element::placeholder { color: #9ca3af; }
+textarea.dash-textarea, textarea.dash-textarea:focus-within {
+  font-size: revert-layer; line-height: revert-layer; padding: revert-layer; border: revert-layer; border-color: revert-layer;
+  border-radius: revert-layer; background: revert-layer; color: revert-layer; font-family: inherit; width: revert-layer; outline: revert-layer;
+}
+textarea.dash-textarea::placeholder { color: #9ca3af; }
+
+/* Dash 4 dropdown styled like the original native <select> (className lands on the button) */
+.ig-select.dash-dropdown, .ig-select .dash-dropdown {
+  width: 100%; min-height: 42px; background: #fff; border: 1px solid #d1d5db; border-radius: 0.5rem;
+  font-size: 0.875rem; font-weight: 500; color: #1f2937; font-family: inherit;
+}
+.ig-select.dash-dropdown:focus, .ig-select.dash-dropdown[aria-expanded="true"] {
+  outline: none; border-color: transparent; box-shadow: 0 0 0 2px var(--accent-500);
+}
+.dash-dropdown-content { border-radius: 0.5rem !important; border-color: #e5e7eb !important; box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.12); font-size: 0.875rem; z-index: 80; font-family: inherit; }
+.dash-dropdown-option[aria-selected="true"] { background: var(--accent-50); color: var(--accent-700); font-weight: 600; }
+.ig-multi.dash-dropdown { background: #f9fafb; font-weight: 400; }
+
+/* Dash checklist → toggle switches on Account → Notifications */
+.ig-toggles input[type="checkbox"] { appearance: none; width: 2.75rem; height: 1.5rem; border-radius: 9999px; background: #d1d5db; position: relative; transition: background .2s; flex-shrink: 0; cursor: pointer; }
+.ig-toggles input[type="checkbox"]::after { content: ""; position: absolute; top: 2px; left: 2px; width: 1.25rem; height: 1.25rem; border-radius: 9999px; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / .2); transition: transform .2s; }
+.ig-toggles input[type="checkbox"]:checked { background: var(--accent-600); }
+.ig-toggles input[type="checkbox"]:checked::after { transform: translateX(1.25rem); }
+input[type="checkbox"] { accent-color: var(--accent-600); }
+
+/* Dash loading overlay: keep the page visible during navigation */
+._dash-loading-callback { display: none; }
+
+/* ---------------------------------------------------------------- print / PDF (from globals.css) */
+@media print {
+  @page { size: A4; margin: 18mm; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  html, body { background: #fff !important; color: #111 !important; font-size: 10.5pt; line-height: 1.45; }
+  .bg-gray-50, .bg-gray-100, .bg-gray-200 { background-color: transparent !important; }
+  * { box-shadow: none !important; text-shadow: none !important; transition: none !important; }
+  .sticky, .fixed { position: static !important; }
+  a { color: inherit !important; text-decoration: none !important; }
+  h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+  .pdf-card, tr { break-inside: avoid; page-break-inside: avoid; }
+  .pdf-header { border-bottom: 1px solid #d1d5db; padding-bottom: 8mm; margin-bottom: 8mm; }
+}

@@ -1,0 +1,506 @@
+{
+  "version": 1,
+  "locale": "en_US.UTF-8",
+  "metadata": {
+    "appmode": "python-dash",
+    "entrypoint": "app:app"
+  },
+  "python": {
+    "version": "3.11.9",
+    "package_manager": {
+      "name": "pip",
+      "version": "26.3",
+      "package_file": "requirements.txt"
+    }
+  },
+  "environment": {
+    "python": {
+      "requires": "==3.11.9"
+    }
+  },
+  "files": {
+    "requirements.txt": {
+      "checksum": "07d0ea7317a34a082891d6a9c6734161"
+    },
+    ".env.sample": {
+      "checksum": "21d1788c5b81696c21e30a16c38116fd"
+    },
+    ".gitignore": {
+      "checksum": "5e355322a1a47a34cab8cec8366e1d6f"
+    },
+    ".rscignore": {
+      "checksum": "3cc33ec940915ee6958bc9cc2772083e"
+    },
+    "app.py": {
+      "checksum": "2c658ae93a6c1417f0b230b49a27e31b"
+    },
+    "assets/app.js": {
+      "checksum": "337eebf7d806674f105a3bd2fbe22923"
+    },
+    "assets/favicon.ico": {
+      "checksum": "c30c7d42707a47a3f4591831641e50dc"
+    },
+    "assets/fonts/LICENSE-FiraSans.txt": {
+      "checksum": "4538a5afdd18ccebd224405ffe3dee4b"
+    },
+    "assets/fonts/LICENSE-Inter.txt": {
+      "checksum": "2eeb2b3ada55f38ae966db32bcb1f92a"
+    },
+    "assets/fonts/fira-sans-latin-700-normal.woff2": {
+      "checksum": "43eb5ca3942e0f74137d8754629fb9e6"
+    },
+    "assets/fonts/fira-sans-latin-ext-700-normal.woff2": {
+      "checksum": "e5bc5443fc3c668eb7b6f8e58c2f3097"
+    },
+    "assets/fonts/inter-latin-400-normal.woff2": {
+      "checksum": "da03732a27e16543f09d6a6a62b0cdd4"
+    },
+    "assets/fonts/inter-latin-500-normal.woff2": {
+      "checksum": "51205681a1ba304816fc629e8989256b"
+    },
+    "assets/fonts/inter-latin-600-normal.woff2": {
+      "checksum": "2ede57db1a3a5f41f40467e7a43a1dd4"
+    },
+    "assets/fonts/inter-latin-700-normal.woff2": {
+      "checksum": "8ca0a51552960933d0fd52c19175cbe9"
+    },
+    "assets/fonts/inter-latin-ext-400-normal.woff2": {
+      "checksum": "0a6ff1a7c1e4c9608b7754285ec9c944"
+    },
+    "assets/fonts/inter-latin-ext-500-normal.woff2": {
+      "checksum": "90ff4f7e8bcb4856837418526e5cee75"
+    },
+    "assets/fonts/inter-latin-ext-600-normal.woff2": {
+      "checksum": "65aed4e1ef6306c7ed47669144eed4e3"
+    },
+    "assets/fonts/inter-latin-ext-700-normal.woff2": {
+      "checksum": "aa4c26661f6463f774f9f3471b87bb5c"
+    },
+    "assets/icons/LICENSE-lucide.txt": {
+      "checksum": "457562d70a4702c994473da969e9b24b"
+    },
+    "assets/icons/alert-circle.svg": {
+      "checksum": "b234350d3d98d0c9055f67354f56f577"
+    },
+    "assets/icons/alert-triangle.svg": {
+      "checksum": "6e3dfe11764183bd17b4a911044c063f"
+    },
+    "assets/icons/arrow-left.svg": {
+      "checksum": "6ab895fc109bdf1be951020c9ee690e8"
+    },
+    "assets/icons/arrow-right.svg": {
+      "checksum": "fe7e34b0d4c7ba19b33804c7813945d7"
+    },
+    "assets/icons/arrow-up-right-solid.svg": {
+      "checksum": "50908e144db654b3fee5c659e67d670f"
+    },
+    "assets/icons/bar-chart-2.svg": {
+      "checksum": "2176da9429c679d91f7e5f5997665183"
+    },
+    "assets/icons/bar-chart-3.svg": {
+      "checksum": "908915a66cffa7773f7ea2653a4adfb8"
+    },
+    "assets/icons/bar-chart.svg": {
+      "checksum": "88723120d60b1f84cb64b978512e72ed"
+    },
+    "assets/icons/bell.svg": {
+      "checksum": "2c81529845857aa826a30d70ce90d05b"
+    },
+    "assets/icons/book-open.svg": {
+      "checksum": "912e7e2f51f70187d48012ee355ad6d1"
+    },
+    "assets/icons/calendar.svg": {
+      "checksum": "d628421eae994a390ca411504803afa8"
+    },
+    "assets/icons/check-circle.svg": {
+      "checksum": "fe2afb894bfe7ee687e3af9d7b2fbc03"
+    },
+    "assets/icons/check.svg": {
+      "checksum": "2a8d8742e5345adfdb963de8426416d4"
+    },
+    "assets/icons/chevron-down.svg": {
+      "checksum": "cf34dbd9655a35940242824fab097bb3"
+    },
+    "assets/icons/chevron-left.svg": {
+      "checksum": "2b7a62a0e435d18377b6330fc4a46801"
+    },
+    "assets/icons/chevron-right.svg": {
+      "checksum": "f078ca76be1c626be344db627c53602a"
+    },
+    "assets/icons/clipboard-list.svg": {
+      "checksum": "442b40c4653343ce365c2a6edaea9e6a"
+    },
+    "assets/icons/clock.svg": {
+      "checksum": "09babd462191445346716813b8580737"
+    },
+    "assets/icons/compass.svg": {
+      "checksum": "a5bf03e9118591818c465d30176b9f0a"
+    },
+    "assets/icons/copy.svg": {
+      "checksum": "20ea0ac5d87ccf078d419eb21e04a6af"
+    },
+    "assets/icons/download.svg": {
+      "checksum": "1894bb4cc59f0a933420738a31ab53f8"
+    },
+    "assets/icons/external-link.svg": {
+      "checksum": "30dda6c456c5c3973eb6d43df3fad1b9"
+    },
+    "assets/icons/eye-off.svg": {
+      "checksum": "a5b462f2d4d72becda22a75567babcc6"
+    },
+    "assets/icons/eye.svg": {
+      "checksum": "be0a6ed13e64a67c1f6c2270c3a9936d"
+    },
+    "assets/icons/file-plus.svg": {
+      "checksum": "94bfb8f566d7dc3ef276cd40c8adfff1"
+    },
+    "assets/icons/file-search.svg": {
+      "checksum": "3e333222eb5f2ab794bc7fb8ca0b4f32"
+    },
+    "assets/icons/file-spreadsheet.svg": {
+      "checksum": "6956d67774443d06a082da4dd4b284ad"
+    },
+    "assets/icons/file-text.svg": {
+      "checksum": "1998a867d22d9192f87edea845a1a956"
+    },
+    "assets/icons/file-type-2.svg": {
+      "checksum": "7fa6daf9c1b1460a79902ac1955907fd"
+    },
+    "assets/icons/file-up.svg": {
+      "checksum": "5147f598db249ab9c60bacc368fadeca"
+    },
+    "assets/icons/file-x.svg": {
+      "checksum": "b7f2c9182764524ed2cf42d4ecd36d3b"
+    },
+    "assets/icons/globe.svg": {
+      "checksum": "aef400f5ac08044d76b3e13c41f191a8"
+    },
+    "assets/icons/help-circle.svg": {
+      "checksum": "2e357570768e97b22f631d0d48cc91c4"
+    },
+    "assets/icons/history.svg": {
+      "checksum": "fcdb6c36395949d57e0c46a2d50324e3"
+    },
+    "assets/icons/image.svg": {
+      "checksum": "745c47527e5ee01c33c560fdd2ad0cc9"
+    },
+    "assets/icons/info.svg": {
+      "checksum": "637c8bb31c876c52fd3e9c4021dac77b"
+    },
+    "assets/icons/key-round.svg": {
+      "checksum": "af21ec31127a6245ea596de9ff8d31d8"
+    },
+    "assets/icons/landmark.svg": {
+      "checksum": "a26e4ad0848897268e26f112aa296242"
+    },
+    "assets/icons/languages.svg": {
+      "checksum": "214ba768ee27f4d9b00fb984886409af"
+    },
+    "assets/icons/layers.svg": {
+      "checksum": "5e917bdf48e47fe6a2cbc1e8c1564509"
+    },
+    "assets/icons/layout-grid.svg": {
+      "checksum": "49247d71f553688d9e17b47a29775ad9"
+    },
+    "assets/icons/list.svg": {
+      "checksum": "528915db96bac1d88ae90486f3c3a5d5"
+    },
+    "assets/icons/loader-2.svg": {
+      "checksum": "3e3afecd1fe14cc463d3103d4b4267d6"
+    },
+    "assets/icons/lock.svg": {
+      "checksum": "38fe74c3d719443b050ac346f44dfa36"
+    },
+    "assets/icons/log-out.svg": {
+      "checksum": "c9ead97f3aa447f12385d5be40df6311"
+    },
+    "assets/icons/mail.svg": {
+      "checksum": "da72e160ebc3dbfe52af0459486e7dba"
+    },
+    "assets/icons/map-pin.svg": {
+      "checksum": "a7200f3dbe6b2b773b9c1b54bbd2fcbe"
+    },
+    "assets/icons/message-circle.svg": {
+      "checksum": "f2555b3a23962bc486feb27dced2ec2d"
+    },
+    "assets/icons/message-square.svg": {
+      "checksum": "4cc448bc40a9032edaba25c37356c5be"
+    },
+    "assets/icons/more-vertical.svg": {
+      "checksum": "155c2b6b736913c0b9a8ef053f212001"
+    },
+    "assets/icons/paperclip.svg": {
+      "checksum": "382d9090f7e159bea0bfce538b171aee"
+    },
+    "assets/icons/pencil.svg": {
+      "checksum": "72f49ddb57e0408f343e2a747cf60177"
+    },
+    "assets/icons/plus.svg": {
+      "checksum": "7f8d38455c6ebbb5d295ebc7cd6e48f3"
+    },
+    "assets/icons/printer.svg": {
+      "checksum": "15415e53402c8899a50b33c4ffdddb03"
+    },
+    "assets/icons/radar.svg": {
+      "checksum": "9a51f917c909f60f05dc7ddac4f48fd0"
+    },
+    "assets/icons/refresh-cw.svg": {
+      "checksum": "c293261bdf7cf14c3e189d809a9f405e"
+    },
+    "assets/icons/rotate-cw.svg": {
+      "checksum": "ed4ac89e9b461e68e3f0e08b82913869"
+    },
+    "assets/icons/save.svg": {
+      "checksum": "eacc5831d838eb82643f7b5a6a7a8def"
+    },
+    "assets/icons/scale.svg": {
+      "checksum": "0a6a70eaf6193ab3b39300fd2f056c1e"
+    },
+    "assets/icons/search.svg": {
+      "checksum": "ab981a8a34366e6663a373e4fd75f049"
+    },
+    "assets/icons/send.svg": {
+      "checksum": "cd937ac03532f62f93ded2f97e6a7ade"
+    },
+    "assets/icons/settings.svg": {
+      "checksum": "b24c8f0842a57ec6f9c2f07c546747a3"
+    },
+    "assets/icons/shield-check.svg": {
+      "checksum": "50bd2a495b4285629cfd872e102d647e"
+    },
+    "assets/icons/sparkles.svg": {
+      "checksum": "64525e0324a01a77639ac4329c43a6be"
+    },
+    "assets/icons/trash-2.svg": {
+      "checksum": "dcc671351ab33b8900a55f71a1936356"
+    },
+    "assets/icons/upload.svg": {
+      "checksum": "73e733915b652235791f842f8d7741e7"
+    },
+    "assets/icons/user-minus.svg": {
+      "checksum": "87c494dbd456a56d367acb80c90a305c"
+    },
+    "assets/icons/user-plus.svg": {
+      "checksum": "0017f16bdd6db23c25500cac0f3f7283"
+    },
+    "assets/icons/user.svg": {
+      "checksum": "f0c660534bd53459ac928367e69b3c49"
+    },
+    "assets/icons/users.svg": {
+      "checksum": "da44e01e85d2770de6328aedcf561cb5"
+    },
+    "assets/icons/wand-sparkles.svg": {
+      "checksum": "2397c82b09df7ee396fe584ea8a7a115"
+    },
+    "assets/icons/x-circle.svg": {
+      "checksum": "e870205d9dcc4c0c5c83aad8ecda6c3c"
+    },
+    "assets/icons/x.svg": {
+      "checksum": "9410728d22b904e2f98b72f6c3b83078"
+    },
+    "assets/img/dimensions.png": {
+      "checksum": "6d4ededc4a1f94e473c1a990caf24eb6"
+    },
+    "assets/img/hero-infrastructure.jpg": {
+      "checksum": "2c4b43c7903678f017a82d0cc5fdffb6"
+    },
+    "assets/img/infragov-assessment-tool-logo.png": {
+      "checksum": "167b1747934a12b343b17be6fec39183"
+    },
+    "assets/img/logo.png": {
+      "checksum": "fe52854eaad41a7d0f46d1ec5f84d1db"
+    },
+    "assets/img/pag.png": {
+      "checksum": "37a6da46b821231d7331251ca9c8f609"
+    },
+    "assets/img/permissions.png": {
+      "checksum": "f13fd123980cbe59992baeebb5097e99"
+    },
+    "assets/img/publish.png": {
+      "checksum": "d1d239629c446312bf4d4f14d731b50e"
+    },
+    "assets/img/save.png": {
+      "checksum": "128cad454ad620a92670bb31ea90989e"
+    },
+    "assets/img/welcome-intro-poster.jpg": {
+      "checksum": "7c0ae5325a24a1a90183384dae94a883"
+    },
+    "assets/img/welcome-intro.mp4": {
+      "checksum": "3375445ae403b8ef372db2583a7cc385"
+    },
+    "assets/style.css": {
+      "checksum": "c65712adec42ca10f6c3326d8a6e87e4"
+    },
+    "constants.py": {
+      "checksum": "52980f289b87c9b28cfca1f5d34a6309"
+    },
+    "data/account_countries.json": {
+      "checksum": "62aecb48c222fc9162ae1bd195061a4a"
+    },
+    "data/countries.json": {
+      "checksum": "70d3f556a6c595b46448da13f4b7d685"
+    },
+    "data/frameworks.json": {
+      "checksum": "742e7a7d863682426510d640020cff39"
+    },
+    "data/messages.json": {
+      "checksum": "bd02fe48319182d6261a882d04f6b012"
+    },
+    "data/releases.json": {
+      "checksum": "4825bd5f6e8561231d1686e67cacabb3"
+    },
+    "pages/__init__.py": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "pages/about.py": {
+      "checksum": "8c6341563191bb007c9b04caaec6ffd0"
+    },
+    "pages/account.py": {
+      "checksum": "f5a43ea0fd17b89e299efb60c6b3da50"
+    },
+    "pages/admin.py": {
+      "checksum": "0e7712233b018d8b65ac845abc268013"
+    },
+    "pages/assessments.py": {
+      "checksum": "73485634132858457c6aab173cdba456"
+    },
+    "pages/country.py": {
+      "checksum": "73d7ab318780dadb3115f2e6cf2b770f"
+    },
+    "pages/dashboard.py": {
+      "checksum": "8eac774d39b8d49716135e506749a298"
+    },
+    "pages/details.py": {
+      "checksum": "1af5f0e0caa1b5670b8eca8c11aa3ab0"
+    },
+    "pages/dimension_entry.py": {
+      "checksum": "f3a042594e77e211c1f1a4079634cb62"
+    },
+    "pages/dimensions.py": {
+      "checksum": "98f6f68729cafcc955925c92600f11a1"
+    },
+    "pages/errors.py": {
+      "checksum": "ebd1291e6b711f8b43da5e9842db3071"
+    },
+    "pages/forgot_password.py": {
+      "checksum": "c6281366c21af6dd382b1d6597112a63"
+    },
+    "pages/home.py": {
+      "checksum": "f45d3841ec9ec48840247f3b0ccc69fc"
+    },
+    "pages/join.py": {
+      "checksum": "31449fe0360c57f5613213f084dc4254"
+    },
+    "pages/login.py": {
+      "checksum": "6d2a983b7fe946b9bc0a13018032120f"
+    },
+    "pages/new_assessment.py": {
+      "checksum": "cb71a2f2470d71f1cb38b9b055b439c2"
+    },
+    "pages/pages_constants.py": {
+      "checksum": "adc6d0fecb9e93016658476c551ec1d5"
+    },
+    "pages/publish.py": {
+      "checksum": "cca0affb481f93ab78f22c4deeaff25f"
+    },
+    "pages/release_notes.py": {
+      "checksum": "384c0c842f3fbf24966e58c185d4bb8a"
+    },
+    "pages/report.py": {
+      "checksum": "073facea12d06fa59d61aac4fdb23882"
+    },
+    "pages/reset_password.py": {
+      "checksum": "fe592d6ebe426512450db2d1256436c9"
+    },
+    "pages/shared_panels.py": {
+      "checksum": "ca695e3f5896dae3db60602d078ae693"
+    },
+    "pages/shell.py": {
+      "checksum": "8d5d36e01ef1d1d97aeaede75d3a89ef"
+    },
+    "pages/suggest_responses.py": {
+      "checksum": "763ae712fca1975835f75ce29ced7fc8"
+    },
+    "pages/visualization.py": {
+      "checksum": "9676071d3c46ace873a552f73973dc09"
+    },
+    "services/__init__.py": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "services/ai.py": {
+      "checksum": "5caefa50054f0357524d26167a9da1bd"
+    },
+    "services/auth.py": {
+      "checksum": "56f4ba0a6235675c1e5393f139079d0d"
+    },
+    "services/crypto.py": {
+      "checksum": "33edad400c3eeb0d5100a7b02860cf2a"
+    },
+    "services/db.py": {
+      "checksum": "fc930de3162a0563df835ea039fbacb9"
+    },
+    "services/documents.py": {
+      "checksum": "927c499c62062b26e4ad08526adbc2d9"
+    },
+    "services/exports.py": {
+      "checksum": "5b31211d92c3b0cfa5299d6500fee956"
+    },
+    "services/mailer.py": {
+      "checksum": "8530a23248f7d0ebf7549d544b292735"
+    },
+    "services/permissions.py": {
+      "checksum": "6d8184db72a57a9cd028618ebadefd6d"
+    },
+    "services/ratelimit.py": {
+      "checksum": "ba62668df7e706c653d4389f750da940"
+    },
+    "services/repository.py": {
+      "checksum": "a53c212ac1b04c9389a9a5e0e878bed6"
+    },
+    "services/respondents.py": {
+      "checksum": "b21fb59eb28d7092050acc8a1724e71c"
+    },
+    "services/schema.py": {
+      "checksum": "5de5235e96c403ef3f91858ac107d8d0"
+    },
+    "services/security.py": {
+      "checksum": "ad0fa68b73e18b88d33b328ef110600c"
+    },
+    "services/storage.py": {
+      "checksum": "72193c95dc2802765dad0dabc1024b99"
+    },
+    "services/users.py": {
+      "checksum": "f4ed6b8e021bebeafe8ab99c07fccfb5"
+    },
+    "services/validators.py": {
+      "checksum": "88276bbb26ca7686d6f5b902bac56de2"
+    },
+    "utils/__init__.py": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "utils/charts.py": {
+      "checksum": "e554a1c8b4c698117319357dadb1ad18"
+    },
+    "utils/components.py": {
+      "checksum": "e9f1d33b59080b09fda516fe0fca6f0a"
+    },
+    "utils/context.py": {
+      "checksum": "2248489ab8b317290204eef2635c20d0"
+    },
+    "utils/countries.py": {
+      "checksum": "290930558d3df3fc727582acee8ae789"
+    },
+    "utils/framework.py": {
+      "checksum": "4f2d1a12af0ccd3ff7bb2dbb6c75caeb"
+    },
+    "utils/i18n.py": {
+      "checksum": "f3d6c29d6d0be59d8cf654d779a6576b"
+    },
+    "utils/layout.py": {
+      "checksum": "6204805c4012e32a1ca053ea10c7a9c0"
+    },
+    "utils/panels.py": {
+      "checksum": "a37c5110b8c4b57a32dc83e6fd1b217d"
+    }
+  }
+}
