@@ -5,3 +5,5 @@ migration
 __pycache__
 .venv
 .venv311
+migration_data
+migration.py

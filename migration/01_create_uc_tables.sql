@@ -2,7 +2,11 @@
 -- InfraGov — Unity Catalog DDL (Azure Databricks)
 -- Target schema: prd_mega.sgpbpi163
 -- Generated from services/schema.py — keep the two in sync.
--- Run in a Databricks SQL editor as a user with CREATE TABLE on the schema.
+-- Notebook cell 1 of 2 (SQL; start the cell with %sql in a Python notebook).
+-- Cell 2 is migration/01b_json_to_uc_table.py (loads the Supabase JSON export).
+-- Also runs as-is in a Databricks SQL editor. Safe to re-run: tables are only
+-- created when missing and CHECK constraints are dropped and re-added.
+-- Needs CREATE TABLE and CREATE VOLUME on the schema.
 -- ============================================================================
 
 USE CATALOG prd_mega;
@@ -39,6 +43,7 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_users (
 USING DELTA
 COMMENT 'Platform users (replaces Supabase auth.users + public.profiles).'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_users DROP CONSTRAINT IF EXISTS role_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_users ADD CONSTRAINT role_valid CHECK (role IN ('Admin','Owner','Contributor','Reviewer','Viewer'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_user_sessions (
@@ -67,6 +72,7 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_auth_tokens (
 USING DELTA
 COMMENT 'Single-use password reset / set-password tokens (hash only).'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_auth_tokens DROP CONSTRAINT IF EXISTS purpose_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_auth_tokens ADD CONSTRAINT purpose_valid CHECK (purpose IN ('reset','invite'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_assessments (
@@ -85,6 +91,7 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_assessments (
 USING DELTA
 COMMENT 'Top-level assessment container (one per country / framework / FY).'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_assessments DROP CONSTRAINT IF EXISTS kind_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_assessments ADD CONSTRAINT kind_valid CHECK (kind IN ('infragov','pagfa'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_dimensions (
@@ -99,7 +106,9 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_dimensions (
 USING DELTA
 COMMENT '16 InfraGov dimensions / 8 PAG-FA pillars per assessment.'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_dimensions DROP CONSTRAINT IF EXISTS status_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_dimensions ADD CONSTRAINT status_valid CHECK (status IN ('Draft','Validated','Published'));
+ALTER TABLE prd_mega.sgpbpi163.infragov_dimensions DROP CONSTRAINT IF EXISTS dim_range;
 ALTER TABLE prd_mega.sgpbpi163.infragov_dimensions ADD CONSTRAINT dim_range CHECK (dim_id BETWEEN 1 AND 16);
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_mbi_entries (
@@ -124,7 +133,9 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_mbi_entries (
 USING DELTA
 COMMENT 'Indicator (MBI) answers.'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_mbi_entries DROP CONSTRAINT IF EXISTS score_range;
 ALTER TABLE prd_mega.sgpbpi163.infragov_mbi_entries ADD CONSTRAINT score_range CHECK (score IS NULL OR score BETWEEN 1 AND 4);
+ALTER TABLE prd_mega.sgpbpi163.infragov_mbi_entries DROP CONSTRAINT IF EXISTS status_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_mbi_entries ADD CONSTRAINT status_valid CHECK (status IN ('complete','in-progress','untouched'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_comments (
@@ -185,6 +196,7 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_dimension_collaborators (
 USING DELTA
 COMMENT 'Per-dimension role assignments.'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_dimension_collaborators DROP CONSTRAINT IF EXISTS role_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_dimension_collaborators ADD CONSTRAINT role_valid CHECK (role IN ('Contributor','Reviewer','Viewer'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_dimension_invitations (
@@ -206,6 +218,7 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_dimension_invitations (
 USING DELTA
 COMMENT 'Pending per-dimension invitations (token stored as SHA-256 only).'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_dimension_invitations DROP CONSTRAINT IF EXISTS status_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_dimension_invitations ADD CONSTRAINT status_valid CHECK (status IN ('Pending','Accepted','Revoked','Expired'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_assessment_team (
@@ -241,6 +254,7 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_unpublish_requests (
 USING DELTA
 COMMENT 'Owner-initiated unpublish requests awaiting Admin review.'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_unpublish_requests DROP CONSTRAINT IF EXISTS status_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_unpublish_requests ADD CONSTRAINT status_valid CHECK (status IN ('Pending','Approved','Denied'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_assessment_documents (
@@ -266,6 +280,7 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_assessment_documents (
 USING DELTA
 COMMENT 'Source documents; files live in the UC Volume infragov_documents.'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_assessment_documents DROP CONSTRAINT IF EXISTS status_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_assessment_documents ADD CONSTRAINT status_valid CHECK (status IN ('processing','ready','failed'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_indicator_suggestions (
@@ -286,8 +301,9 @@ CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_indicator_suggestions (
   CONSTRAINT infragov_indicator_suggestions_pk PRIMARY KEY (id)
 )
 USING DELTA
-COMMENT 'Saved AI 'Suggest Responses' drafts.'
+COMMENT 'Saved AI \'Suggest Responses\' drafts.'
 TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');
+ALTER TABLE prd_mega.sgpbpi163.infragov_indicator_suggestions DROP CONSTRAINT IF EXISTS status_valid;
 ALTER TABLE prd_mega.sgpbpi163.infragov_indicator_suggestions ADD CONSTRAINT status_valid CHECK (status IN ('suggested','no_evidence'));
 
 CREATE TABLE IF NOT EXISTS prd_mega.sgpbpi163.infragov_security_events (

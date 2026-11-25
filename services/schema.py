@@ -348,6 +348,10 @@ def _sqlite_ddl() -> str:
 SQLITE_DDL = _sqlite_ddl()
 
 
+def _sql_str(text: str) -> str:
+    return "'" + text.replace("\\", "\\\\").replace("'", "\\'") + "'"
+
+
 def uc_ddl() -> str:
     """Unity Catalog DDL for every table (used to regenerate the migration SQL)."""
     fq = f"{C.UC_CATALOG}.{C.UC_SCHEMA}"
@@ -356,7 +360,11 @@ def uc_ddl() -> str:
         "-- InfraGov — Unity Catalog DDL (Azure Databricks)",
         f"-- Target schema: {fq}",
         "-- Generated from services/schema.py — keep the two in sync.",
-        "-- Run in a Databricks SQL editor as a user with CREATE TABLE on the schema.",
+        "-- Notebook cell 1 of 2 (SQL; start the cell with %sql in a Python notebook).",
+        "-- Cell 2 is migration/01b_json_to_uc_table.py (loads the Supabase JSON export).",
+        "-- Also runs as-is in a Databricks SQL editor. Safe to re-run: tables are only",
+        "-- created when missing and CHECK constraints are dropped and re-added.",
+        "-- Needs CREATE TABLE and CREATE VOLUME on the schema.",
         "-- ============================================================================",
         "",
         f"USE CATALOG {C.UC_CATALOG};",
@@ -371,14 +379,15 @@ def uc_ddl() -> str:
         name = f"{fq}.{C.TABLE_NAMES[key]}"
         lines = []
         for c, t, nn, comment in spec["cols"]:
-            cm = f" COMMENT '{comment}'" if comment else ""
+            cm = f" COMMENT {_sql_str(comment)}" if comment else ""
             lines.append(f"  {c} {t}{' NOT NULL' if nn else ''}{cm}")
         lines.append(f"  CONSTRAINT {C.TABLE_NAMES[key]}_pk PRIMARY KEY ({', '.join(spec['pk'])})")
         out.append(f"CREATE TABLE IF NOT EXISTS {name} (\n" + ",\n".join(lines) + "\n)")
         out.append("USING DELTA")
-        out.append(f"COMMENT '{spec['comment']}'")
+        out.append(f"COMMENT {_sql_str(spec['comment'])}")
         out.append("TBLPROPERTIES ('delta.enableChangeDataFeed' = 'true');")
         for cname, expr in spec["checks"].items():
+            out.append(f"ALTER TABLE {name} DROP CONSTRAINT IF EXISTS {cname};")
             out.append(f"ALTER TABLE {name} ADD CONSTRAINT {cname} CHECK ({expr});")
         out.append("")
     return "\n".join(out)

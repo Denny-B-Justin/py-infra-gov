@@ -73,3 +73,11 @@ Class names are Tailwind utilities copied from the original components. After ch
 * Account → Profile/Notifications/Password now actually save; the sign-in e-mail is read-only.
 * Assessment Settings "Save Changes" now saves Department and Description (the title stays system-generated).
 * AI features appear only when `ANTHROPIC_API_KEY` is set.
+
+## Exporting the Supabase data to JSON (`migration.py`)
+
+`python migration.py` downloads every Supabase table into `migration_data/<table>.json`
+(one file per table; add `--files` for uploaded documents, `--include-password-hashes`
+for bcrypt hashes). It needs `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in your local
+`.env` (see `.env.sample`). The folder contains personal data: it is git-ignored and excluded
+from the Connect bundle — delete it after the upload.
