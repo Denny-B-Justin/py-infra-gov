@@ -16,11 +16,10 @@ On the way it applies the same transforms as migrate_supabase_to_uc.py:
 Column types come from the tables themselves, so the two cells stay in sync.
 Everything (rows and files) is checked before anything is written.
 
-Before running: put the app's FIELD_ENCRYPTION_KEY (the SAME value Posit Connect
-uses) in a secret scope, e.g.
-    databricks secrets create-scope infragov
-    databricks secrets put-secret infragov FIELD_ENCRYPTION_KEY
-Set DRY_RUN = True first to check counts and validation without writing.
+Before running: create the FIELD_ENCRYPTION_KEY secret with 01a_create_encryption_secret.py
+and give Posit Connect the SAME value.
+Settings are notebook widgets (source folder, secret scope, encryption, dry run).
+The dry_run widget starts at "yes": check the output, then switch it to "no" to load.
 """
 import base64
 import hashlib
@@ -32,12 +31,20 @@ from datetime import datetime, timezone
 
 from pyspark.sql.types import BooleanType, IntegerType, LongType, StringType, TimestampType
 
-SOURCE_DIR = "/Volumes/prd_mega/sgpbpi163/pimpam_policy/PIMPAM-AI/infra-gov"
-TARGET = "prd_mega.sgpbpi163"
-DOCUMENT_VOLUME = "/Volumes/prd_mega/sgpbpi163/infragov_documents"
+TARGET = "prd_mega.sgpbpi163"  # fixed: must match cell 1 and constants.py
+DOCUMENT_VOLUME = "/Volumes/prd_mega/sgpbpi163/pimpam_policy/PIMPAM-AI/infragov_documents/"  # fixed: the app reads documents only from here
+
+# Settings appear as widgets at the top of the notebook.
+widgets = dbutils.widgets  # noqa: F821 - notebook global
+widgets.text("source_dir", "/Volumes/prd_mega/sgpbpi163/pimpam_policy/PIMPAM-AI/infra-gov", "Source folder (JSON export)")
+widgets.text("secret_scope", "infragov", "Secret scope")
+widgets.dropdown("encrypt_fields", "yes", ["yes", "no"], "Encrypt sensitive fields")
+widgets.dropdown("dry_run", "yes", ["yes", "no"], "Dry run (validate only)")
+SOURCE_DIR = widgets.get("source_dir").strip().rstrip("/")
 # (scope, key) of FIELD_ENCRYPTION_KEY; None loads those fields as plaintext (the app encrypts them on next save).
-ENCRYPTION_SECRET = ("infragov", "FIELD_ENCRYPTION_KEY")
-DRY_RUN = False
+ENCRYPTION_SECRET = (widgets.get("secret_scope").strip(), "FIELD_ENCRYPTION_KEY") if widgets.get("encrypt_fields") == "yes" else None
+DRY_RUN = widgets.get("dry_run") == "yes"
+print(f"source: {SOURCE_DIR} | encryption: {'/'.join(ENCRYPTION_SECRET) if ENCRYPTION_SECRET else 'OFF'} | dry run: {DRY_RUN}\n")
 
 # Load order (parents first). Every key maps to prd_mega.sgpbpi163.infragov_<key>.
 TABLES = ["users", "assessments", "dimensions", "mbi_entries", "comments", "activity_log", "dimension_collaborators",
@@ -51,7 +58,14 @@ _aesgcm = None
 if ENCRYPTION_SECRET:
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
-    _key_b64 = dbutils.secrets.get(*ENCRYPTION_SECRET)  # noqa: F821 - notebook global
+    try:
+        _key_b64 = dbutils.secrets.get(*ENCRYPTION_SECRET)  # noqa: F821 - notebook global
+    except Exception as e:  # noqa: BLE001 - dbutils raises a Java-side IllegalArgumentException
+        raise RuntimeError(
+            f"Secret {ENCRYPTION_SECRET[1]!r} not found in scope {ENCRYPTION_SECRET[0]!r}. Run the "
+            "01a_create_encryption_secret.py cell first and set the same value in Posit Connect. "
+            "Or set the 'Encrypt sensitive fields' widget to 'no' to load those fields as plaintext."
+        ) from e
     _key = base64.urlsafe_b64decode(_key_b64 + "=" * (-len(_key_b64) % 4))
     if len(_key) != 32:
         raise ValueError("FIELD_ENCRYPTION_KEY must decode to exactly 32 bytes")
@@ -226,7 +240,7 @@ if errors:
     raise ValueError(f"{len(errors)} problem(s) found - nothing was written:\n" + "\n".join(errors[:50]))
 
 if DRY_RUN:
-    print("\nDRY_RUN = True: validation passed, nothing written.")
+    print("\nDry run: validation passed, nothing written. Set the 'Dry run' widget to 'no' to load.")
 else:
     print()
     for path, rel in copies:  # files first, so every document row that appears already has its file
